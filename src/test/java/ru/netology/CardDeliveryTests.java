@@ -17,11 +17,11 @@ public class CardDeliveryTests {
         String date = DataGenerator.generateDate(3);
         open("http://localhost:9999/");
 
-        $("[data-test-id = 'city'] input").sendKeys(userInfo.city);
+        $("[data-test-id = 'city'] input").sendKeys(userInfo.getCity());
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id = 'date'] input").sendKeys(date);
-        $("[data-test-id = 'name'] input").sendKeys(userInfo.name);
-        $("[data-test-id = 'phone'] input").sendKeys(userInfo.phone);
+        $("[data-test-id = 'name'] input").sendKeys(userInfo.getName());
+        $("[data-test-id = 'phone'] input").sendKeys(userInfo.getPhone());
         $("[data-test-id = 'agreement'] .checkbox__box").click();
         $$("button").find(exactText("Запланировать")).click();
         $("[data-test-id = 'success-notification'] .notification__content")

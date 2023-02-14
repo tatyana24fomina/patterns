@@ -36,41 +36,18 @@ public class DataGenerator {
         }
 
         public static DataGenerator.UserInfo generateUser(String locale) {
-            DataGenerator.UserInfo user = new DataGenerator.UserInfo();
-            DataGenerator generator = new DataGenerator();
-            user.setCity(generator.generateCity(locale));
-            user.setName(generator.generateName(locale));
-            user.setPhone(generator.generatePhone(locale));
+            String city = generateCity(locale);
+            String name = generateName(locale);
+            String phone = generatePhone(locale);
+            DataGenerator.UserInfo user = new DataGenerator.UserInfo(city, name, phone);
             return user;
         }
     }
 
+    @Value
     public static class UserInfo {
-        private UserInfo() {}
-            String city;
-            String name;
-            String phone;
-            public String getCity() {
-                return city;
-            }
-            public void setCity(String city) {
-                this.city = city;
-            }
-
-            public String getName() {
-                return name;
-            }
-            public void setName(String name) {
-                this.name = name;
-            }
-
-            public String getPhone() {
-                return phone;
-            }
-
-            public void setPhone(String phone) {
-                this.phone = phone;
-            }
-
-        }
+        String city;
+        String name;
+        String phone;
     }
+}
